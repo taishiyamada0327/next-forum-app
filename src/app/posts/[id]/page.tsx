@@ -5,14 +5,22 @@ import { notFound } from 'next/navigation';
 import CommentList from '@/components/forum/CommentList';
 import CommentForm from '@/components/forum/CommentForm';
 
-interface PostPageProps {
-  params: {
-    id: string;
-  };
-}
+type Params = {
+  params: { id: string };
+};
 
-export default async function PostPage({ params }: PostPageProps) {
-  const postId = parseInt(params.id, 10);
+type SearchParams = {
+  searchParams: { [key: string]: string | string[] | undefined };
+};
+
+type Props = {
+  params: Promise<Params>;
+  searchParams: Promise<SearchParams>;
+};
+
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export default async function PostPage({ params, searchParams }: Props) {
+  const postId = parseInt((await params).params.id, 10);
   const post = await getPostById(postId);
 
   if (!post) {

@@ -1,18 +1,26 @@
 import { getAllCategories } from '@/lib/api';
 import PostForm from '@/components/forum/PostForm';
 
-interface CreatePostPageProps {
-  searchParams: {
-    categoryId?: string;
-  };
-}
+type Params = {
+  categoryId?: string;
+};
 
-export default async function CreatePostPage({
-  searchParams,
-}: CreatePostPageProps) {
+type SearchParams = {
+  searchParams: { [key: string]: string | string[] | undefined };
+};
+
+type Props = {
+  params: Promise<Params>;
+  searchParams: Promise<SearchParams>;
+};
+
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export default async function CreatePostPage({ params, searchParams }: Props) {
+  const resolvedParams = await params;
+
   const categories = await getAllCategories();
-  const selectedCategoryId = searchParams.categoryId
-    ? parseInt(searchParams.categoryId, 10)
+  const selectedCategoryId = resolvedParams.categoryId
+    ? parseInt(resolvedParams.categoryId, 10)
     : undefined;
 
   return (

@@ -5,14 +5,22 @@ import CategorySidebar from '@/components/forum/CategorySidebar';
 import { getCategoryById, getPostsByCategory } from '@/lib/api';
 import { notFound } from 'next/navigation';
 
-interface CategoryPageProps {
-  params: {
-    id: string;
-  };
-}
+type Params = {
+  params: { id: string };
+};
 
-export default async function CategoryPage({ params }: CategoryPageProps) {
-  const categoryId = parseInt(params.id, 10);
+type SearchParams = {
+  searchParams: { [key: string]: string | string[] | undefined };
+};
+
+type Props = {
+  params: Promise<Params>;
+  searchParams: Promise<SearchParams>;
+};
+
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export default async function CategoryPage({ params, searchParams }: Props) {
+  const categoryId = parseInt((await params).params.id, 10);
   const category = await getCategoryById(categoryId);
 
   if (!category) {
