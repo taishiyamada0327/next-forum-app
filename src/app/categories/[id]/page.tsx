@@ -34,7 +34,7 @@ export default async function CategoryPage({ params, searchParams }: Props) {
       <div className="bg-white shadow rounded-lg mb-6 overflow-hidden">
         <div className="p-6">
           <div className="flex items-center">
-            <div className={`flex-shrink-0 ${category.iconColor}`}>
+            <div className={`flex-shrink-0`}>
               {/* 一般的なアイコンをレンダリング - 実装はクライアントコンポーネントで行う必要があります */}
               <div className="h-8 w-8"></div>
             </div>

@@ -35,10 +35,10 @@ export default async function PostPage({ params, searchParams }: Props) {
         <div className="px-4 py-5 sm:px-6 border-b border-gray-200">
           <div className="flex items-center">
             <Link
-              href={`/categories/${post.category.id}`}
+              href={`/categories/${post.categoryId}`}
               className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800 hover:bg-gray-200"
             >
-              {post.category.name}
+              {post.categoryId}
             </Link>
             <span className="mx-2 text-gray-400">/</span>
             <h1 className="text-xl font-semibold text-gray-900">
@@ -48,7 +48,7 @@ export default async function PostPage({ params, searchParams }: Props) {
           <div className="mt-2 flex items-center text-sm text-gray-500">
             <Image
               className="h-8 w-8 rounded-full mr-2"
-              src={post.user.profileImage}
+              src={'/default-avatar.png'}
               alt={post.user.name}
               width={32}
               height={32}
