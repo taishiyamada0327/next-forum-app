@@ -12,6 +12,7 @@ export default function CategoryList({
   className = '',
 }: CategoryListProps) {
   // アイコンのマッピング
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const getIcon = (iconName: string) => {
     switch (iconName) {
       case 'MessageSquare':
@@ -35,16 +36,14 @@ export default function CategoryList({
         >
           <div className="p-5">
             <div className="flex items-center">
-              <div className={`flex-shrink-0 ${category.iconColor}`}>
-                {getIcon(category.iconName)}
+              <div className={`flex-shrink-0}`}>
+                {/* {getIcon(category.iconName)} */}
               </div>
               <div className="ml-5">
                 <h3 className="text-lg font-medium text-gray-900">
                   {category.name}
                 </h3>
-                <p className="mt-1 text-sm text-gray-500">
-                  {category.topicsCount} トピック
-                </p>
+                <p className="mt-1 text-sm text-gray-500">トピック</p>
               </div>
             </div>
           </div>
