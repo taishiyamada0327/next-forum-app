@@ -1,36 +1,34 @@
 export interface User {
-  id: number;
+  id: string;
   name: string;
-  profileImage: string;
+  displayName: string;
+  createdAt: string;
 }
 
 export interface Category {
   id: number;
   name: string;
   description: string;
-  iconName: string;
-  iconColor: string;
-  topicsCount: number;
+  createdAt: string;
 }
 
 export interface Post {
   id: number;
   title: string;
   content: string;
-  createdAt: string;
+  userId: string;
   user: User;
-  category: {
-    id: number;
-    name: string;
-  };
-  commentsCount: number;
-  viewsCount: number;
+  categoryId: number;
+  createdAt: string;
+  updatedAt: string;
 }
 
 export interface Comment {
   id: number;
   content: string;
-  createdAt: string;
+  userId: string;
   user: User;
-  likes: number;
+  postId: number;
+  createdAt: string;
+  updatedAt: string;
 }

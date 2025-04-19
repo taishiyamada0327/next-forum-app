@@ -30,7 +30,7 @@ export default function CommentList({ comments }: CommentListProps) {
               <div className="flex-shrink-0">
                 <Image
                   className="h-10 w-10 rounded-full"
-                  src={comment.user.profileImage}
+                  src={''}
                   alt={comment.user.name}
                   width={40}
                   height={40}
@@ -59,10 +59,7 @@ export default function CommentList({ comments }: CommentListProps) {
                     onClick={() => handleLike(comment.id)}
                   >
                     <ThumbsUp className="h-4 w-4 mr-1" />
-                    <span>
-                      いいね！{' '}
-                      {comment.likes + (likedComments[comment.id] ? 1 : 0)}
-                    </span>
+                    <span>いいね！ {0}</span>
                   </button>
                   <button className="text-gray-500 hover:text-blue-600">
                     <Reply className="h-4 w-4 mr-1 inline" />

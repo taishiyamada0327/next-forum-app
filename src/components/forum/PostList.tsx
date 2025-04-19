@@ -2,6 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { MessageSquare, Eye } from 'lucide-react';
 import { Post } from '@/lib/types';
+import { formatDate } from '@/lib/utils';
 
 interface PostListProps {
   posts: Post[];
@@ -30,8 +31,8 @@ export default function PostList({
                   <div className="flex-shrink-0 mr-4">
                     <Image
                       className="h-10 w-10 rounded-full"
-                      src={post.user.profileImage}
-                      alt={post.user.name}
+                      src={'/default-avatar.png'}
+                      alt={post.user.displayName || post.user.name}
                       width={40}
                       height={40}
                     />
@@ -45,20 +46,20 @@ export default function PostList({
                     </Link>
                     <div className="mt-1 flex items-center">
                       <span className="text-sm font-medium text-gray-900">
-                        {post.user.name}
+                        {post.user.displayName || post.user.name}
                       </span>
                       <span className="mx-1 text-sm text-gray-500">•</span>
                       <span className="text-sm text-gray-500">
-                        {post.createdAt}
+                        {formatDate(post.createdAt)}
                       </span>
                       {showCategory && (
                         <>
                           <span className="mx-1 text-sm text-gray-500">•</span>
                           <Link
-                            href={`/categories/${post.category.id}`}
+                            href={`/categories/${post.categoryId}`}
                             className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800 hover:bg-gray-200"
                           >
-                            {post.category.name}
+                            {post.categoryId}
                           </Link>
                         </>
                       )}
@@ -67,11 +68,11 @@ export default function PostList({
                   <div className="flex-shrink-0 ml-4 flex items-center space-x-4 text-sm text-gray-500">
                     <div className="flex items-center">
                       <MessageSquare className="h-4 w-4 mr-1 text-gray-400" />
-                      <span>{post.commentsCount}</span>
+                      {/* <span>{post.commentsCount}</span> */}
                     </div>
                     <div className="flex items-center">
                       <Eye className="h-4 w-4 mr-1 text-gray-400" />
-                      <span>{post.viewsCount}</span>
+                      {/* <span>{post.views_count}</span> */}
                     </div>
                   </div>
                 </div>
