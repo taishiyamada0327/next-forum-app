@@ -3,15 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import {
-  MessageSquare,
-  Users,
-  TrendingUp,
-  Bell,
-  Search,
-  Menu,
-  X,
-} from 'lucide-react';
+import { MessageSquare, Bell, Search, Menu, X } from 'lucide-react';
 
 export default function Navbar() {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
