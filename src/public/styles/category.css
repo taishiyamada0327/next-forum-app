@@ -1,0 +1,53 @@
+/* カテゴリーカードのホバーエフェクト */
+.category-card:hover {
+  transform: translateY(-2px);
+  transition: transform 0.2s ease-in-out;
+}
+
+/* カテゴリーアイコンの背景 */
+.category-icon-bg {
+  background-color: rgba(59, 130, 246, 0.1);
+}
+
+/* カテゴリーのグラデーションボーダー */
+.category-gradient-border {
+  background: linear-gradient(90deg, #60a5fa 0%, #3b82f6 100%);
+}
+
+/* カテゴリー統計のカード */
+.category-stat-card {
+  transition: all 0.2s ease-in-out;
+}
+
+.category-stat-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* カテゴリーサイドバーのリストアイテム */
+.category-rule-item {
+  transition: all 0.2s ease-in-out;
+}
+
+.category-rule-item:hover {
+  background-color: #f9fafb;
+  padding-left: 0.5rem;
+}
+
+/* レスポンシブ調整 */
+@media (max-width: 640px) {
+  .category-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .category-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 1024px) {
+  .category-content {
+    grid-template-columns: 1fr;
+  }
+}
