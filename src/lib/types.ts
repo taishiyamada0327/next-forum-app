@@ -3,6 +3,7 @@ export interface User {
   name: string;
   displayName: string;
   createdAt: string;
+  avatarUrl: string;
 }
 
 export interface Category {
@@ -19,6 +20,9 @@ export interface Post {
   userId: string;
   user: User;
   categoryId: number;
+  category: Category;
+  viewsCount: number;
+  commentsCount: number;
   createdAt: string;
   updatedAt: string;
 }
